@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logicals</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        .bg-secondary {
+            background-image: url(images/pexels-oleksandr-pidvalnyi-1008000.jpg);
+            background-position: center;
+            background-clip: content-box;
+            background-size: 100%;
+            backdrop-filter: blur(15px);
+        }
+
+        #myspan {
+            color: black;
+        }
+
+        .childs {
+            padding: 3px 5px;
+            color: black;
+            font-size: 3rem;
+            opacity: 1;
+            height: auto;
+            margin: 3px;
+            border-radius: 6%;
+            align-self: center;
+
+        }
+
+        #inputAppend {
+            position: relative;
+
+            top: 2vh;
+            min-height: auto;
+            width: 97.2vw;
+            border-radius: 1%;
+            background-color: transparent;
+            justify-content: space-between;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap-reverse;
+        }
+
+        .opacityNone {
+            display: none !important;
+        }
+
+        .GetArrValues1 {
+            justify-content: center;
+            display: flex;
+            /* transform: scale(1.5); */
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, 150%) !important;
+            transition-duration: 5s !important;
+            transition-timing-function: linear !important;
+            transition-delay: 3s !important;
+            position: relative;
+
+        }
+        .GetArrValues .GetArrValues3{
+            border-style: dashed;
+        }
+        
+        .GetArrValues .GetArrValues4{
+            border-style: dotted;
+        }
+        
+        .GetArrValues .GetArrValues5{
+            border-style: double;
+        }
+
+        .GetArrValues1 {
+            /* border: 5px solid #9898e6; */
+            width: 250px;
+            margin: 3px 0px;
+            height: auto;
+            transform: scale(2.5);
+        }
+
+        .GetArrValues {
+            border: 5px solid #9898e6;
+            margin: 7px;
+        }
+
+        .ArrData {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 11px;
+            vertical-align: middle;
+        }
+
+        /* display data and border */
+        .opacity-1 {
+            opacity: 1 !important;
+            position: relative;
+            z-index: 99;
+        }
+
+        .getValuesParent {
+            z-index: 999;
+            position: relative;
+        }
+
+        .opacity-0 {
+            opacity: 0;
+        }
+        .scaling{
+            transform: scale(2.5);
+        }
+
+        .trasnsitions {
+            transition-duration: 10s !important;
+            transition-timing-function: linear !important;
+            transition-delay: .0s !important;
+            
+        }
+    </style>
+</head>
+
+<body class="bg-secondary text-white vh-100">
+    <div class="container-fluid ">
+
+        <form class="row   align-items-center getValuesParent">
+            <div class="col-4 my-2 text-center">
+                <span class="font-bold">
+                    Type Your  favourite person name?
+                </span>
+            </div>
+
+            <div class="col-4 my-2">
+                <input type="text" class="form-control" id="inputPassword2" placeholder="Password">
+            </div>
+            <div class="col-4 my-2 mt-1 text-center">
+                <button type="button" class="btn btn-primary submit" placeholder="submit"> button </button>
+            </div>
+        </form>
+
+        <!-- displaying all the given values -->
+        <section class="inputAppend1">
+            <div class=" inputAppend" id="inputAppend">
+
+
+            </div>
+    </div>
+    </section>
+    <section class="section2 opacity-0 ">
+        <div class="GetArrValues1">
+            <div class="GetArrValues GetArrValue2 opacity-0 trasnsitions" id="GetArrValues2">
+                <div class="GetArrValues GetArrValues3 opacity-0 trasnsitions">
+                    <div class="GetArrValues GetArrValues4 opacity-0 trasnsitions">
+                        <div class="GetArrValues GetArrValues5 trasnsitions">
+                        <div class="ArrData GetArrValues6 trasnsitions">
+                            
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            let inputValue;
+            $(".submit").click(() => {
+                appInpValues();
+                offset1(div)
+            })
+
+
+        })
+        let count = 0;
+        let addFontsize = "12";
+        let borderSize = ".9";
+        let arr = [];
+
+        // dynamic span and styling it
+
+        function appInpValues() {
+            var randomColor = Math.floor(Math.random() * 16777215).toString(16);
+            let inputValue = document.getElementById("inputPassword2").value;
+            let appendValues = document.getElementById("inputAppend");
+            // Create an "li" node:
+            const node = document.createElement("span");
+            node.classList.add("child" + count++);
+            node.setAttribute("id", "childs")
+            node.classList.add("childs");
+            node.style.color = "#" + randomColor;
+            node.style.fontSize = addFontsize++ + "px";
+            node.style.border = borderSize++ + "px" + " solid " + "#" + randomColor;
+            // Create a text node:
+            const textnode = document.createTextNode(inputValue);
+
+            // Append the text node to the "li" node:
+            node.appendChild(textnode);
+            arr.push(textnode)
+            appendValues.appendChild(node);
+        }
+
+        // example use for div
+        var div = document.querySelector('#inputAppend');
+        offset1(div)
+
+        // creating  section two var
+        let sectionTwo = document.querySelector(".section2");
+        
+        // bottom offset
+        function offset1(el) {
+            // Calculate the bottom vaue
+            var bottom = el.offsetTop + $(el).outerHeight();
+            console.log(bottom)
+            // return bottom offset
+            if (bottom > 450) {
+                let addArrData ;
+                let overZoomData = document.querySelector(".ArrData");
+                let span = document.createElement("span");
+                let GetArrValue2 = document.getElementById("GetArrValues2");
+
+                GetArrValues2.classList.add("scaling");
+                div.classList.add("opacityNone");
+                sectionTwo.classList.add("opacity-1");
+                addArrData = arr[2].textContent;
+                span.innerText = addArrData;
+                console.log(addArrData)
+                
+                overZoomData.appendChild(span);
+                
+
+                setInterval(() => {
+                    let GetArrValues6 = document.querySelector(".GetArrValues6");
+                    GetArrValues6.classList.add("opacity-1");
+                
+                }, 20000);
+                
+                setInterval(() => {
+                    let GetArrValues5 = document.querySelector(".GetArrValues5");
+                    GetArrValues5.classList.add("opacity-1");
+                
+                }, 15000);
+                setInterval(() => {
+                    let GetArrValues4 = document.querySelector(".GetArrValues4");
+                    GetArrValues4.classList.add("opacity-1");
+               
+                }, 8000);
+                setInterval(() => {
+                    let GetArrValue3 = document.querySelector(".GetArrValues3");
+                    GetArrValue3.classList.add("opacity-1");
+                    
+                }, 4000);
+                setInterval(() => {
+                    GetArrValues2.classList.add("opacity-1");
+                
+                }, 0);
+                
+
+            }
+            return bottom;
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>
